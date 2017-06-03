@@ -34,9 +34,18 @@
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
+    <div th:if="${jobs} and ${jobs.size()}">
 
-    <!-- TODO #2 - Loop over jobs map to display all job fields -->
+        <table th:each="job, idx : ${jobs}" th:class="job-listing">
+            <tr th:each="property, idx : ${job}">
+                <td th:text="${property.key}"></td>
+                <td th:text="${property.value}"></td>
+
+            </tr>
+
+        </table>
+
+    </div>
 
 </div>
 
